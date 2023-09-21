@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "paths": {
+    "/attachIoTPolicyToFederatedUser": {
+      "name": "/attachIoTPolicyToFederatedUser",
+      "lambdaFunction": "addIotPolicyToFederatedUser",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "guest": [
+          "read"
+        ],
+        "groups": {
+          "userPoolGroups": [
+            "read"
+          ]
+        }
+      }
+    },
+    "/echo": {
+      "name": "/echo",
+      "lambdaFunction": "mzcamplifydemo40539921",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "guest": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "groups": {
+          "userPoolGroups": [
+            "create",
+            "read",
+            "update",
+            "delete"
+          ]
+        }
+      }
+    }
+  }
+}

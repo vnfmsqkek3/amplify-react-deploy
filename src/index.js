@@ -1,14 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Amplify } from 'aws-amplify';
+import awsconfig from './aws-exports';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
+Amplify.configure(awsconfig);
+
+ReactDOM.render(
+  <React.Fragment>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <App />
-  </React.StrictMode>
+  </React.Fragment>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,0 +1,134 @@
+{
+  "api": {
+    "apiTeam02Demo01": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "addIotPolicyToFederatedUser"
+        },
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "mzcamplifydemo"
+        },
+        {
+          "attributes": [
+            "userPoolGroupsGroupRole"
+          ],
+          "category": "auth",
+          "resourceName": "userPoolGroups"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "mzcamplifydemo40539921"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "mzcamplifydemo": {
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "managed"
+    },
+    "userPoolGroups": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "mzcamplifydemo"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito-UserPool-Groups"
+    }
+  },
+  "function": {
+    "addIotPolicyToFederatedUser": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "mzcamplifydemo40539921": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "iotpubsub": {
+    "iotpolicy": {
+      "providerPlugin": "awscloudformation",
+      "service": "IoT-Message-Viewer"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_addIotPolicyToFederatedUser_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "addIotPolicyToFederatedUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_addIotPolicyToFederatedUser_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "addIotPolicyToFederatedUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_mzcamplifydemo40539921_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "mzcamplifydemo40539921"
+        }
+      ]
+    },
+    "AMPLIFY_function_mzcamplifydemo40539921_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "mzcamplifydemo40539921"
+        }
+      ]
+    }
+  }
+}

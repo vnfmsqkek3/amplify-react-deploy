@@ -1,0 +1,38 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-mzcamplifydemo-dev-92950-authRole",
+      "UnauthRoleArn": "arn:aws:iam::236372560924:role/amplify-mzcamplifydemo-dev-92950-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::236372560924:role/amplify-mzcamplifydemo-dev-92950-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-mzcamplifydemo-dev-92950-deployment",
+      "UnauthRoleName": "amplify-mzcamplifydemo-dev-92950-unauthRole",
+      "StackName": "amplify-mzcamplifydemo-dev-92950",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:236372560924:stack/amplify-mzcamplifydemo-dev-92950/fab138e0-5815-11ee-8da0-02a11200ba60",
+      "AmplifyAppId": "d1soaobwnotfsz",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-mzcamplifydemo-dev-92950-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "mzcamplifydemo": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "addIotPolicyToFederatedUser": {
+          "deploymentBucketName": "amplify-mzcamplifydemo-dev-92950-deployment",
+          "s3Key": "amplify-builds/addIotPolicyToFederatedUser-2b754e69565446576a4f-build.zip"
+        },
+        "mzcamplifydemo40539921": {
+          "deploymentBucketName": "amplify-mzcamplifydemo-dev-92950-deployment",
+          "s3Key": "amplify-builds/mzcamplifydemo40539921-6e785638783230626d2b-build.zip"
+        }
+      },
+      "iotpubsub": {
+        "iotpolicy": {}
+      },
+      "api": {
+        "apiTeam02Demo01": {}
+      }
+    }
+  }
+}
