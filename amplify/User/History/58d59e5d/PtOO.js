@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, CardContent, Typography, Grid } from '@mui/material';
+import { Button, TextField, Card, CardContent, Typography } from '@mui/material';
 import { API } from 'aws-amplify';
 
 const DeviceViewer = () => {
@@ -17,7 +17,6 @@ const DeviceViewer = () => {
 
       const result = await API.get(apiName, path, requestOptions);
       if (specificDeviceID) {
-        setSelectedDevice(specificDeviceID);
         setDeviceDetails(result);
       } else {
         setAllDevices(result);
@@ -35,39 +34,32 @@ const DeviceViewer = () => {
         Call API
       </Button>
 
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          {allDevices.map(deviceID => (
-            <Card 
-              key={deviceID} 
-              onClick={() => callAPI(deviceID)}
-              style={{ backgroundColor: selectedDevice === deviceID ? 'primary' : 'transparent', 
-              margin: '10px 0'
-            }}
-            >
-              <CardContent>
-                <Typography variant="h6" component="h2">
-                  Device ID: {deviceID}
-                </Typography>
-              </CardContent>
-            </Card>
-          ))}
-        </Grid>
+      <div>
+        {allDevices.map(deviceID => (
+          <Card key={deviceID} onClick={() => callAPI(deviceID)}>
+            <CardContent>
+              <Typography variant="h6" component="h2">
+                Device ID: {deviceID}
+              </Typography>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
 
-        <Grid item xs={6}>
-          {isLoading && (
-            <div>
-              Loading...
-            </div>
-          )}
+      {isLoading && (
+        <div>
+          Loading...
+        </div>
+      )}
 
-          {deviceDetails.length === 0 && !isLoading && (
-            <div>
-              Not Found
-            </div>
-          )}
+      {deviceDetails.length === 0 && !isLoading && (
+        <div>
+          Not Found
+        </div>
+      )}
 
-          {deviceDetails.map(device => (
+      <div>
+        {deviceDetails.map(device => (
              <Card key={`${device.device_id}-${device.timestamp}`} style={{ margin: '20px 0' }}>
              <CardContent>
              <Typography variant="h6" component="h2">
@@ -121,9 +113,8 @@ const DeviceViewer = () => {
              </Typography>
            </CardContent>
          </Card>
-          ))}
-        </Grid>
-      </Grid>
+         ))}
+      </div>
     </div>
   );
 };

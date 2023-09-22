@@ -17,7 +17,6 @@ const DeviceViewer = () => {
 
       const result = await API.get(apiName, path, requestOptions);
       if (specificDeviceID) {
-        setSelectedDevice(specificDeviceID);
         setDeviceDetails(result);
       } else {
         setAllDevices(result);
@@ -38,13 +37,7 @@ const DeviceViewer = () => {
       <Grid container spacing={3}>
         <Grid item xs={6}>
           {allDevices.map(deviceID => (
-            <Card 
-              key={deviceID} 
-              onClick={() => callAPI(deviceID)}
-              style={{ backgroundColor: selectedDevice === deviceID ? 'primary' : 'transparent', 
-              margin: '10px 0'
-            }}
-            >
+            <Card key={deviceID} onClick={() => callAPI(deviceID)}>
               <CardContent>
                 <Typography variant="h6" component="h2">
                   Device ID: {deviceID}

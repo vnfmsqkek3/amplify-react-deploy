@@ -24,7 +24,6 @@ def lambda_handler(event, context):
         if 'deviceID' not in event:
             sql_query = 'SELECT DISTINCT DEVICE_ID FROM hiq_db_table'
             cursor.execute(sql_query)
-
             rows = cursor.fetchall()
             unique_device_ids = [row["DEVICE_ID"] for row in rows]
             return {

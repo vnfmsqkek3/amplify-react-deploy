@@ -41,9 +41,7 @@ const DeviceViewer = () => {
             <Card 
               key={deviceID} 
               onClick={() => callAPI(deviceID)}
-              style={{ backgroundColor: selectedDevice === deviceID ? 'primary' : 'transparent', 
-              margin: '10px 0'
-            }}
+              style={{ backgroundColor: selectedDevice === deviceID ? 'primary' : 'transparent' }}
             >
               <CardContent>
                 <Typography variant="h6" component="h2">
