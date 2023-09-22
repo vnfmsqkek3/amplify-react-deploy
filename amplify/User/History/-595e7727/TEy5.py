@@ -26,7 +26,7 @@ def lambda_handler(event, context):
     try:
         # Check if DeviceID value is provided in the event
         if 'deviceID' in event:
-            device_id = event['deviceID']
+            device_id = event['DeviceID']
             # Execute SQL query with the provided DeviceID value
             sql_query = 'SELECT * FROM hiq_db_table WHERE DEVICE_ID = %s'
             cursor.execute(sql_query, (device_id,))
