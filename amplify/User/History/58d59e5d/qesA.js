@@ -13,19 +13,14 @@ const DeviceViewer = () => {
     try {
         const apiName = 'apiTeam02Demo01';
         const path = specificDeviceID ? `/amplifyhiqrdsQuery-dev?deviceID=${specificDeviceID}` : '/amplifyhiqrdsQuery-dev';
-        const requestOptions = {};
+        const requestOptions = {};  // Since we are using query parameters, we don't need a body now
 
         const result = await API.get(apiName, path, requestOptions);
-        const parsedResult = typeof result === 'string' ? JSON.parse(result) : result; // Ensure the result is parsed
-
-        console.log("API Result:", parsedResult); // Debugging line
-
         if (specificDeviceID) {
             setSelectedDevice(specificDeviceID);
-            setDeviceDetails([]); // Clear the previous device details first
-            setDeviceDetails(parsedResult);
+            setDeviceDetails(result);
         } else {
-            setAllDevices(parsedResult);
+            setAllDevices(result);
         }
     } catch (error) {
         console.error("API call error:", error);

@@ -22,7 +22,6 @@ const DeviceViewer = () => {
 
         if (specificDeviceID) {
             setSelectedDevice(specificDeviceID);
-            setDeviceDetails([]); // Clear the previous device details first
             setDeviceDetails(parsedResult);
         } else {
             setAllDevices(parsedResult);

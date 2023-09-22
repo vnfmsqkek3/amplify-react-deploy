@@ -28,9 +28,7 @@ def lambda_handler(event, context):
         'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
     }
 
-    device_id_param = None
-    if event.get('queryStringParameters'):
-        device_id_param = event['queryStringParameters'].get('deviceID')
+    device_id_param = event.get('queryStringParameters', {}).get('deviceID')
 
     try:
         # If no specific deviceID is provided, return all unique deviceIDs

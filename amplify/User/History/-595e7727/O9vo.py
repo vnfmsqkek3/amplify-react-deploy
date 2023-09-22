@@ -28,13 +28,9 @@ def lambda_handler(event, context):
         'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
     }
 
-    device_id_param = None
-    if event.get('queryStringParameters'):
-        device_id_param = event['queryStringParameters'].get('deviceID')
-
     try:
         # If no specific deviceID is provided, return all unique deviceIDs
-        if not device_id_param:
+        if 'deviceID' not in event:
             sql_query = 'SELECT DISTINCT DEVICE_ID FROM hiq_db_table'
             cursor.execute(sql_query)
 
@@ -46,7 +42,7 @@ def lambda_handler(event, context):
                 'headers': headers
             }
         else:
-            device_id = device_id_param
+            device_id = event['deviceID']
             sql_query = 'SELECT * FROM hiq_db_table WHERE DEVICE_ID = %s ORDER BY TS DESC LIMIT 10'
             cursor.execute(sql_query, (device_id,))
 

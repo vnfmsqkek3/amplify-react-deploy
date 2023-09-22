@@ -18,11 +18,8 @@ const DeviceViewer = () => {
         const result = await API.get(apiName, path, requestOptions);
         const parsedResult = typeof result === 'string' ? JSON.parse(result) : result; // Ensure the result is parsed
 
-        console.log("API Result:", parsedResult); // Debugging line
-
         if (specificDeviceID) {
             setSelectedDevice(specificDeviceID);
-            setDeviceDetails([]); // Clear the previous device details first
             setDeviceDetails(parsedResult);
         } else {
             setAllDevices(parsedResult);
