@@ -19,11 +19,11 @@ def lambda_handler(event, context):
         'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
     }
 
-    device_id = event['queryStringParameters'].get('deviceID', None) if event.get('queryStringParameters') else None
+    body = json.loads(event.get("body", "{}"))
 
     try:
         # If no specific deviceID is provided, return all unique deviceIDs
-        if not device_id:
+        if 'deviceID' not in body:
             sql_query = 'SELECT DISTINCT DEVICE_ID FROM hiq_db_table'
             cursor.execute(sql_query)
 
@@ -35,6 +35,7 @@ def lambda_handler(event, context):
                 'headers': headers
             }
         else:
+            device_id = body['deviceID']
             sql_query = 'SELECT * FROM hiq_db_table WHERE DEVICE_ID = %s ORDER BY TS DESC LIMIT 10'
             cursor.execute(sql_query, (device_id,))
 
@@ -46,7 +47,30 @@ def lambda_handler(event, context):
                     'headers': headers
                 }
 
-            search_results = [dict(row) for row in rows]  # Convert row to dict
+            search_results = []
+            for row in rows:
+                data = {
+                    "device_id": row["DEVICE_ID"],
+                    "timestamp": row["TS"],
+                    "location": {
+                        "lat": float(row["LAT"]),
+                        "lon": float(row["LON"])
+                    },
+                    "solv": float(row["SOLV"]),
+                    "batv": float(row["BATV"]),
+                    "led_off_char": float(row["LED_OFF_CHAR"]),
+                    "led_off_use": float(row["LED_OFF_USE"]),
+                    "led_on_use": float(row["LED_ON_USE"]),
+                    "temp": float(row["TEMP"]),
+                    "humi": float(row["HUMI"]),
+                    "azi": row["AZI"],
+                    "cds": row["CDS"],
+                    "power": row["POWER"],
+                    "led_speed": row["LED_SPEED"],
+                    "led_mode": row["LED_MODE"],
+                    "relief": row["RELIEF"]
+                }
+                search_results.append(data)
 
             return {
                 'statusCode': 200,

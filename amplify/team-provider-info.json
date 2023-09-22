@@ -28,7 +28,7 @@
         },
         "amplifyhiqrdsQuery": {
           "deploymentBucketName": "amplify-mzcamplifydemo-dev-92950-deployment",
-          "s3Key": "amplify-builds/amplifyhiqrdsQuery-4354356f363951343666-build.zip"
+          "s3Key": "amplify-builds/amplifyhiqrdsQuery-71615079517065316552-build.zip"
         }
       },
       "iotpubsub": {
