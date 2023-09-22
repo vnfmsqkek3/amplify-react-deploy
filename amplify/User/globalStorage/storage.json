@@ -129,8 +129,7 @@
                     },
                     {
                         "id": "saveAll",
-                        "label": "Save A&&ll",
-                        "enabled": false
+                        "label": "Save A&&ll"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1625,8 +1624,8 @@
                 "mode": 1,
                 "x": 0,
                 "y": 25,
-                "width": 1504,
-                "height": 1605
+                "width": 1147,
+                "height": 1345
             }
         },
         "openedWindows": []

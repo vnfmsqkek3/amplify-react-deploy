@@ -31,6 +31,14 @@
           ],
           "category": "function",
           "resourceName": "mzcamplifydemo40539921"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "amplifyhiqrdsQuery"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -85,6 +93,12 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "amplifyhiqrdsQuery": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "mzcamplifydemo40539921": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -111,6 +125,22 @@
         {
           "category": "function",
           "resourceName": "addIotPolicyToFederatedUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifyhiqrdsQuery_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyhiqrdsQuery"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifyhiqrdsQuery_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyhiqrdsQuery"
         }
       ]
     },
