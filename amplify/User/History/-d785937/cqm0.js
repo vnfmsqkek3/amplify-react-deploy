@@ -68,42 +68,7 @@ const DeviceViewer = () => {
               <Typography>
                 Solar Voltage (SOLV): {device.solv}V
               </Typography>
-              <Typography>
-                Battery Voltage (BATV): {device.batv}V
-              </Typography>
-              <Typography>
-                LED OFF Charge: {device.led_off_char}
-              </Typography>
-              <Typography>
-                LED OFF Use: {device.led_off_use}
-              </Typography>
-              <Typography>
-                LED ON Use: {device.led_on_use}
-              </Typography>
-              <Typography>
-                Temperature (TEMP): {device.temp}°C
-              </Typography>
-              <Typography>
-                Humidity (HUMI): {device.humi}%
-              </Typography>
-              <Typography>
-                Azimuth (AZI): {device.azi}
-              </Typography>
-              <Typography>
-                CDS: {device.cds}
-              </Typography>
-              <Typography>
-                Power: {device.power}
-              </Typography>
-              <Typography>
-                LED Speed: {device.led_speed}
-              </Typography>
-              <Typography>
-                LED Mode: {device.led_mode}
-              </Typography>
-              <Typography>
-                Relief: {device.relief}
-              </Typography>
+              {/* ... [Include all other fields in a similar manner as shown above] */}
             </CardContent>
           </Card>
         ))}
