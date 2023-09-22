@@ -16,7 +16,7 @@ const DeviceViewer = () => {
         body: { deviceID: deviceID },
       };
 
-      const result = await API.get(apiName, path, requestOptions);
+      const result = await API.post(apiName, path, requestOptions);
       const parsedDevices = JSON.parse(result.body);
       setDevices(parsedDevices);
     } catch (error) {
