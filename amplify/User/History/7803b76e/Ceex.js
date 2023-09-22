@@ -1,4 +1,3 @@
-file:///Users/mzc01-czy1023/Desktop/amplify-mzc-iot-project/src/components/widgets/iot-message-viewer.js {"mtime":1695309386314,"ctime":1695257282388,"size":8618,"etag":"3b831rqcj8u0","orphaned":false,"typeId":""}
 import React, {useEffect} from 'react';
 import { store, view } from '@risingstack/react-easy-state';
 import Widget from './widget.js';
