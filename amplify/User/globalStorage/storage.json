@@ -69,7 +69,8 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor"
+                                    "label": "&&Reopen Closed Editor",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -1611,7 +1612,7 @@
             "editorPartMinWidth": 220,
             "titleBarHeight": 35,
             "activityBarWidth": 48,
-            "sideBarWidth": 444,
+            "sideBarWidth": 170,
             "statusBarHeight": 22,
             "windowBorder": false
         }
@@ -1622,10 +1623,10 @@
             "backupPath": "/Users/mzc01-czy1023/Desktop/amplify-mzc-iot-project/amplify/Backups/02d90fa8ee0932062dc67c90bb73eba4",
             "uiState": {
                 "mode": 1,
-                "x": 28,
-                "y": 26,
-                "width": 1272,
-                "height": 1345
+                "x": 0,
+                "y": 44,
+                "width": 900,
+                "height": 1062
             }
         },
         "openedWindows": []
