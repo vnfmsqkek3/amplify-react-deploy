@@ -51,10 +51,10 @@ const EventViewer = (props) => {
   useEffect(() => {
     if (widgetRef.current) {
       const resizeObserver = new ResizeObserver(entries => {
-        window.requestAnimationFrame(() => {
-          // Handle the resize event if necessary
-          // For now, we're just preventing the loop without doing anything
-        });
+          window.requestAnimationFrame(() => {
+            // Handle the resize event if necessary
+            // For now, we're just preventing the loop without doing anything
+          });
       });
 
       resizeObserver.observe(widgetRef.current);
@@ -83,7 +83,7 @@ const EventViewer = (props) => {
       updateState('led_flashing_speed', 0);
       updateState('led_flashing_mode', 0);
     }
-  };
+};
 
   return (
     <Widget ref={widgetRef}>
@@ -128,37 +128,35 @@ const EventViewer = (props) => {
           <br /><br />
         </Grid>
 
-        <Grid item xs={6}>
-          <h3>Publish Template Message</h3>
-          <Grid container spacing={2} alignItems="center">
-            <Grid item xs={6}>
-              <TextField
-                id="deviceID"
-                label="Device ID"
-                value={state.deviceID}
-                onChange={e => updateState('deviceID', e.target.value)}
-                fullWidth={true}
-              />
-            </Grid>
+        <Grid container spacing={2} alignItems="center">
+  <Grid item xs={6}>
+    <TextField
+      id="deviceID"
+      label="Device ID"
+      value={state.deviceID}
+      onChange={e => updateState('deviceID', e.target.value)}
+      fullWidth={true}
+    />
+  </Grid>
 
-            <Grid item xs={6}>
-              <FormControl component="fieldset" fullWidth>
-                <InputLabel shrink>LED On/Off</InputLabel>
-                <RadioGroup
-                  row
-                  aria-label="led-control"
-                  name="led-control1"
-                  value={state.ledControl}
-                  onChange={e => handleLEDControlChange(e)}
-                  style={{ display: 'flex', justifyContent: 'flex-start', marginTop: '15px' }}
-                >
-                  <FormControlLabel value="on" control={<Radio color="primary" size="small" />} label="On" />
-                  <FormControlLabel value="off" control={<Radio color="primary" size="small" />} label="Off" />
-                </RadioGroup>
-              </FormControl>
-            </Grid>
-          </Grid>
-          <br />
+  <Grid item xs={6}>
+    <FormControl component="fieldset" fullWidth>
+      <InputLabel shrink>LED On/Off</InputLabel>
+      <RadioGroup
+        row
+        aria-label="led-control"
+        name="led-control1"
+        value={state.ledControl}
+        onChange={e => handleLEDControlChange(e)}
+        style={{ display: 'flex', justifyContent: 'space-between', marginTop: '15px' }}
+      >
+        <FormControlLabel value="on" control={<Radio color="primary" size="small" />} label="On" />
+        <FormControlLabel value="off" control={<Radio color="primary" size="small" />} label="Off" />
+      </RadioGroup>
+    </FormControl>
+  </Grid>
+</Grid>
+        <br />
 
           <Grid container spacing={0}>
             <Grid item xs={6} style={{ paddingRight: '2px' }}>
@@ -242,7 +240,7 @@ async function getIoTEndpoint() {
     region: awsExports.aws_project_region,
     credentials: Auth.essentialCredentials(credentials)
   });
-  const response = await iot.describeEndpoint({ endpointType: 'iot:Data-ATS' }).promise();
+  const response = await iot.describeEndpoint({endpointType: 'iot:Data-ATS'}).promise();
   state.iotEndpoint = `wss://${response.endpointAddress}/mqtt`
   console.log(`Your IoT Endpoint is:\n ${state.iotEndpoint}`);
 
@@ -262,8 +260,8 @@ async function configurePubSub() {
   else {
     console.log('Amplify IoT provider already configured.');
   }
-
-
+  
+  
 }
 
 //------------------------------------------------------------------------------
@@ -273,20 +271,20 @@ async function attachIoTPolicyToUser() {
   // federated identity already has the necessary IoT policy attached:
   const IOT_ATTRIBUTE_FLAG = 'custom:iotPolicyIsAttached';
 
-  var userInfo = await Auth.currentUserInfo({ bypassCache: true });
+  var userInfo = await Auth.currentUserInfo({bypassCache: true});
   var iotPolicyIsAttached = userInfo.attributes[IOT_ATTRIBUTE_FLAG] === "true";
 
   if (!iotPolicyIsAttached) {
 
     const apiName = 'apiTeam02Demo01';
-    const path = '/attachIoTPolicyToFederatedUser';
+    const path = '/attachIoTPolicyToFederatedUser'; 
     const myInit = {
-      response: true, // OPTIONAL (return the entire Axios response object instead of only response.data)
+        response: true, // OPTIONAL (return the entire Axios response object instead of only response.data)
     };
-
+  
     console.log(`Calling API GET ${path} to attach IoT policy to federated user...`);
     var response = await API.get(apiName, path, myInit);
-    console.log(`GET ${path} ${response.status} response:\n ${JSON.stringify(response.data, null, 2)}`);
+    console.log(`GET ${path} ${response.status} response:\n ${JSON.stringify(response.data,null,2)}`);
     console.log(`Attached IoT Policy to federated user.`)
 
   }
@@ -324,7 +322,7 @@ function handleReceivedMessage(data) {
 
 //------------------------------------------------------------------------------
 function subscribeToTopic() {
-
+  
   // Fired when user clicks subscribe button:
   if (state.isSubscribed) {
     state.subscription.unsubscribe();
@@ -339,8 +337,8 @@ function subscribeToTopic() {
   });
   state.isSubscribed = true;
   state.subscribedTopic = state.subscribeTopicInput;
-  console.log(`Subscribed to IoT topic ${state.subscribeTopicInput}`);
-
+  console.log(`Subscribed to IoT topic ${state.subscribeTopicInput }`);
+  
 }
 
 //------------------------------------------------------------------------------
