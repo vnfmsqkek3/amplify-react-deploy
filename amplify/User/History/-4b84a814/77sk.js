@@ -1,6 +1,5 @@
-// opensearch-dashboard.js
 import React, { useEffect, useState } from 'react';
-import fetchOpenSearchEndpoint from './opensearch';
+import fetchOpenSearchEndpoint from './src/components/widgets/opensearch';
 
 function OpenSearchDashboard() {
     const [endpoint, setEndpoint] = useState("");

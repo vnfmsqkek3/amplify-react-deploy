@@ -1,4 +1,3 @@
-// opensearch-dashboard.js
 import React, { useEffect, useState } from 'react';
 import fetchOpenSearchEndpoint from './opensearch';
 
