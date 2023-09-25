@@ -67,6 +67,25 @@
           "delete"
         ]
       }
+    },
+    "/opensearch": {
+      "name": "/opensearch",
+      "lambdaFunction": "OpenSearchProxy",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "guest": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
     }
   }
 }

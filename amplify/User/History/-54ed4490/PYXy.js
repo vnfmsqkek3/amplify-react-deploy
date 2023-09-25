@@ -1,4 +1,3 @@
-file:///Users/mzc01-czy1023/Desktop/amplify-mzc-iot-project/src/components/common/material-ui-styles.js {"mtime":1695361561652,"ctime":1695257282382,"size":1075,"etag":"3b85hl62713l","orphaned":false,"typeId":""}
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 

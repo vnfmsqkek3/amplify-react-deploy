@@ -39,6 +39,14 @@
           ],
           "category": "function",
           "resourceName": "amplifyhiqrdsQuery"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "OpenSearchProxy"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -88,6 +96,11 @@
     }
   },
   "function": {
+    "OpenSearchProxy": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "addIotPolicyToFederatedUser": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -112,6 +125,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_OpenSearchProxy_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "OpenSearchProxy"
+        }
+      ]
+    },
+    "AMPLIFY_function_OpenSearchProxy_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "OpenSearchProxy"
+        }
+      ]
+    },
     "AMPLIFY_function_addIotPolicyToFederatedUser_deploymentBucketName": {
       "usedBy": [
         {
