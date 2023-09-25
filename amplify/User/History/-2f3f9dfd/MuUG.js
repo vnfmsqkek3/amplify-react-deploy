@@ -28,11 +28,6 @@ import {
 const state = store({
   widgets: [
     {
-      component: DemoWidget,
-      displayName: 'Demo Widget',
-      id: 'demo-widget',
-    },
-    {
       component: UserInfo,
       displayName: 'Cognito Info',
       id: 'cognito-info',
@@ -46,7 +41,12 @@ const state = store({
       component: IoTMessageViewer,
       displayName: 'IoT Message Viewer',
       id: 'iot-message-viewer',
-    }
+    },
+    {
+      component: DemoWidget,
+      displayName: 'Demo Widget',
+      id: 'demo-widget',
+    },
   ]
 });
 

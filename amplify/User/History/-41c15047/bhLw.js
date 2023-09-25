@@ -59,6 +59,6 @@ const UserInfo = view(() => {
       </div>
     </Widget>
   );
-})
+}
 
 export default UserInfo; 
